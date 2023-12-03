@@ -3,11 +3,11 @@ import { Link, useStaticQuery, graphql } from "gatsby"
 
 const Header = (props) => {
   const data = useStaticQuery(graphql`
-    query {
+    query staticVercelpath0SrccomponentsheaderJs2435595840 {
       allMongodbNewsAppNews {
-        distinct(field: category)
-      }
+        distinct(field: {category: SELECT})
     }
+}
   `);
 
   const categories = data.allMongodbNewsAppNews.distinct;
