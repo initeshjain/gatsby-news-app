@@ -1,21 +1,20 @@
 /**
  * Configure your Gatsby site with this file.
- *
- * See: https://www.gatsbyjs.com/docs/reference/config-files/gatsby-config/
- */
-
 /**
  * @type {import('gatsby').GatsbyConfig}
  */
+
+require('dotenv').config();
 module.exports = {
   siteMetadata: {
-    title: `Gatsby Default Starter`,
-    description: `Kick off your next, great Gatsby project with this default starter. This barebones starter ships with the main Gatsby configuration files you might need.`,
-    author: `@gatsbyjs`,
-    siteUrl: `https://gatsbystarterdefaultsource.gatsbyjs.io/`,
+    title: `Googgle.in News App`,
+    description: `Keep in touch with latest headlines...`,
+    author: `@newsapp`,
+    siteUrl: `http://localhost:8000`,
   },
   plugins: [
     `gatsby-plugin-image`,
+    'gatsby-plugin-sitemap',
     {
       resolve: `gatsby-source-filesystem`,
       options: {
@@ -38,6 +37,29 @@ module.exports = {
         display: `minimal-ui`,
         icon: `src/images/gatsby-icon.png`, // This path is relative to the root of the site.
       },
+    },
+    {
+      // The name of the plugin
+      resolve: 'gatsby-source-mongodb',
+      options: {
+        // Name of the database and collection where are books reside
+        dbName: 'NewsApp',
+        collection: 'news',
+        server: {
+          address: process.env.MONGODB_HOST,
+          port: process.env.MONGODB_PORT
+        },
+        auth: {
+          user: process.env.MONGODB_USER,
+          password: process.env.MONGODB_PASSWORD
+        },
+        extraParams: {
+          replicaSet: 'Main-shard-0',
+          ssl: true,
+          authSource: 'admin',
+          retryWrites: true
+        }
+      }
     },
   ],
 }
