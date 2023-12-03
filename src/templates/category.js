@@ -4,7 +4,6 @@ import Layout from "../components/layout"
 
 const CategoryTemplate = ({ data }) => {
   const newsarray = data.allMongodbNewsAppNews.nodes;
-  console.log("cscscsscs", data)
 
   const category = data.category.nodes && data.category.nodes[0] && data.category.nodes[0].category;
 

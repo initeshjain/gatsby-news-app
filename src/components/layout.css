@@ -259,10 +259,11 @@ pre tt:after {
   content: none;
 }
 
+/* Default styles for larger screens */
 .news-container {
   display: flex;
   flex-direction: row;
-  flex-wrap: wrap
+  flex-wrap: wrap;
 }
 
 .news {
@@ -273,4 +274,15 @@ pre tt:after {
 
 .news img {
   width: 50%;
+}
+
+/* Media query for mobile screens */
+@media screen and (max-width: 768px) {
+  .news {
+    width: 100%;
+  }
+
+  .news img {
+    width: 100%;
+  }
 }

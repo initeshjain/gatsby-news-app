@@ -7,10 +7,10 @@
 require('dotenv').config();
 module.exports = {
   siteMetadata: {
-    title: `Googgle.in News App`,
+    title: `Headlines News App`,
     description: `Keep in touch with latest headlines...`,
     author: `@newsapp`,
-    siteUrl: `https://googgle.in`,
+    siteUrl: `https://www.googgle.in`,
   },
   plugins: [
     `gatsby-plugin-image`,
@@ -39,10 +39,8 @@ module.exports = {
       },
     },
     {
-      // The name of the plugin
       resolve: 'gatsby-source-mongodb',
       options: {
-        // Name of the database and collection where are books reside
         dbName: 'NewsApp',
         collection: 'news',
         server: {
