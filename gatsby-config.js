@@ -10,7 +10,7 @@ module.exports = {
     title: `Googgle.in News App`,
     description: `Keep in touch with latest headlines...`,
     author: `@newsapp`,
-    siteUrl: `http://localhost:8000`,
+    siteUrl: `https://googgle.in`,
   },
   plugins: [
     `gatsby-plugin-image`,
